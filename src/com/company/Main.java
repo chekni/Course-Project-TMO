@@ -47,7 +47,7 @@ class Matrix {
         System.out.println();
     }
 
-    public Matrix infinitesimalGenerator(Matrix[] arr) {
+    public  void infinitesimalGenerator(Matrix[] arr) {
         Matrix result = new Matrix(2);
         int length = arr.length;
         for (int i = 0; i < length; i++) {
@@ -55,7 +55,7 @@ class Matrix {
         }
         result.printMatrix();
 
-        return result;
+        this.matrixArray = result.matrixArray;
     }
 
     public Matrix sumTwoMatrix(Matrix A, Matrix B) {
@@ -113,7 +113,7 @@ public class Main {
             arrD[1] = D1;
             arrD[2] = D2;
 
-            infGenerator = infGenerator.infinitesimalGenerator(arrD);
+            infGenerator.infinitesimalGenerator(arrD);
             System.out.println("Инфинитезимальный генератор D(1): " + '\n');
             infGenerator.printMatrix();
         } catch (FileNotFoundException exception) {
