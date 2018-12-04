@@ -50,19 +50,36 @@
     <session id="692331136">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.27" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2682" />
+          <entry key="W" value="1" />
+          <entry key="java" value="6455" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2682" />
+          <entry key="JAVA" value="6455" />
+          <entry key="PLAIN_TEXT" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="W" value="1" />
+          <entry key="txt" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -72,15 +89,28 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="199" column="42" lean-forward="true" selection-start-line="199" selection-start-column="42" selection-end-line="199" selection-end-column="42" />
+            <state relative-caret-position="204">
+              <caret line="367" column="33" selection-start-line="367" selection-start-column="33" selection-end-line="367" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#645#646#0" expanded="true" />
-                <element signature="e#689#690#0" expanded="true" />
-                <element signature="e#616#617#0" expanded="true" />
-                <element signature="e#648#649#0" expanded="true" />
+                <element signature="method#Matrix#1;class#Matrix#0" />
+                <element signature="method#Matrix#2;class#Matrix#0" />
+                <element signature="method#getMatrixFromFile#0;class#Matrix#0" />
+                <element signature="method#printMatrix#0;class#Matrix#0" />
+                <element signature="method#printInverseMatrix#0;class#Matrix#0" />
+                <element signature="method#vectorMultipleMatrix#0;class#Matrix#0" />
+                <element signature="method#matrixMultipleMatrix#0;class#Matrix#0" />
+                <element signature="method#getInverseMatrix#0;class#Matrix#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inputData/Mu.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -95,10 +125,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
+        <entry file="file://$PROJECT_DIR$/inputData/W">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="2" selection-start-column="2" selection-end-column="2" />
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -134,6 +173,8 @@
         <option value="$PROJECT_DIR$/inputData/D2.txt" />
         <option value="$PROJECT_DIR$/inputData/D1.txt" />
         <option value="$PROJECT_DIR$/inputData/N.txt" />
+        <option value="$PROJECT_DIR$/inputData/Mu.txt" />
+        <option value="$PROJECT_DIR$/inputData/W" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
     </option>
@@ -144,50 +185,36 @@
     <option name="width" value="1400" />
     <option name="height" value="779" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Course Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Course Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CourseProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseProject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Course Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Course Project" type="462c0819:PsiDirectoryNode" />
+              <item name="CourseProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourseProject" type="462c0819:PsiDirectoryNode" />
               <item name="inputData" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Course Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Course Project" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Course Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Course Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Course Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Course Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543819578890" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543944741124" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
@@ -246,7 +273,7 @@
     <frame x="20" y="43" width="1400" height="779" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26067746" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26804122" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -255,8 +282,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32896653" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.016011644" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.37991267" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2823872" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37991267" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32896653" />
@@ -277,30 +304,18 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>300</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+    <entry file="file://$PROJECT_DIR$/inputData/Mu.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="199" column="42" lean-forward="true" selection-start-line="199" selection-start-column="42" selection-end-line="199" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
-            <element signature="e#689#690#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inputData/D0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -311,10 +326,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
+    <entry file="file://$PROJECT_DIR$/inputData/W">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -325,10 +340,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inputData/D0.txt">
+    <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        <state relative-caret-position="15">
+          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="367" column="33" selection-start-line="367" selection-start-column="33" selection-end-line="367" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Matrix#1;class#Matrix#0" />
+            <element signature="method#Matrix#2;class#Matrix#0" />
+            <element signature="method#getMatrixFromFile#0;class#Matrix#0" />
+            <element signature="method#printMatrix#0;class#Matrix#0" />
+            <element signature="method#printInverseMatrix#0;class#Matrix#0" />
+            <element signature="method#vectorMultipleMatrix#0;class#Matrix#0" />
+            <element signature="method#matrixMultipleMatrix#0;class#Matrix#0" />
+            <element signature="method#getInverseMatrix#0;class#Matrix#0" />
+          </folding>
         </state>
       </provider>
     </entry>
