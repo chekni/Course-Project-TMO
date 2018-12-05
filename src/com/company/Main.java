@@ -3,7 +3,6 @@ package com.company;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Vector;
 
 class Matrix {
     private String filePath;
@@ -395,7 +394,6 @@ class Matrix {
             }
 
             Matrix fed = Matrix.sumTwoMatrix(M1, M2);
-            fed.printMatrix();
             Q[n][n - 1] = Matrix.sumTwoMatrix(M1, M2);
         }
 
@@ -632,16 +630,30 @@ public class Main {
         System.out.println();
 
         System.out.println("Q[0][1]:");
-        Q_inf_gen[0][0].printMatrix();
+        Q_inf_gen[0][1].printMatrix();
         System.out.println();
 
 
-//        for (int i = 1; i < N-1; i++) {
-//            for (int j = i; j <= i+2; j++) {
-//                Q_inf_gen[i][j].printMatrix();
-//                System.out.println();
-//            }
-//        }
+        System.out.println("Q[1][0]:");
+        Q_inf_gen[1][0].printMatrix();
+        System.out.println();
+
+        System.out.println("Q[1][1]:");
+        Q_inf_gen[1][1].printMatrix();
+        System.out.println();
+
+        System.out.println("Q[1][2]:");
+        Q_inf_gen[1][2].printMatrix();
+        System.out.println();
+
+
+        System.out.println("Q[2][1]:");
+        Q_inf_gen[2][1].printMatrix();
+        System.out.println();
+
+        System.out.println("Q[2][2]:");
+        Q_inf_gen[2][2].printMatrix();
+        System.out.println();
 
 
     }
