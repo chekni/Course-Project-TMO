@@ -158,7 +158,7 @@ class Matrix {
     }
 
     public double[] calculateLamda(double[] Q, double[] e, Matrix[] Di) {
-        int count = Di.length - 1;
+        int count = Di.length;
         double[] lamda = new double[count];
         for (int i = 1; i < count; i++) {
             double[] tmp = Di[i].vectorMultipleMatrix(Q);
@@ -167,8 +167,8 @@ class Matrix {
         return lamda;
     }
 
-    public double[] calculateDispersion(double[] lamda, Matrix[] Di, double[] Q) {
-        int n = lamda.length - 1;
+    public static double[] calculateDispersion(double[] lamda, Matrix[] Di, double[] tau) {
+        int n = lamda.length;
         double[] result = new double[n];
         for (int i = 1; i < n; i++) {
             Matrix sum = sumTwoMatrix(Di[0], Di[i]);
@@ -177,7 +177,7 @@ class Matrix {
             Gauss(sum, f);
             Matrix tmp = new Matrix(sum.getMatrixInverse());
 
-            double[] vectorMultMatr = tmp.vectorMultipleMatrix(Q);
+            double[] vectorMultMatr = tmp.vectorMultipleMatrix(tau);
             double[] e = new double[vectorMultMatr.length];
             for (int j = 0; j < e.length; j++) {
                 e[j] = 1;
@@ -228,16 +228,16 @@ class Matrix {
         return result;
     }
 
-    public double[] calculateKoeffKorrel(double[] lamda, Matrix[] Di, double[] Q, double[] Vi) {
+    public static double[] calculateKoeffKorrel(double[] lamda, Matrix[] Di, double[] tau, double[] dispersion) {
         int n = lamda.length;
-        double[] result = new double[n - 1];
+        double[] result = new double[n];
         for (int i = 1; i < n; i++) {
             Matrix sum = sumTwoMatrix(Di[0], Di[i]);
             double[] f = new double[n];
             Gauss(sum, f);
             Matrix inverse = new Matrix(sum.getMatrixInverse());
 
-            double[] res1 = inverse.vectorMultipleMatrix(Q);
+            double[] res1 = inverse.vectorMultipleMatrix(tau);
             double[] res2 = Di[i].vectorMultipleMatrix(res1);
             double[] res3 = inverse.vectorMultipleMatrix(res2);
             double[] e = new double[res1.length];
@@ -247,7 +247,7 @@ class Matrix {
             double res4 = Matrix.vectorMultipleVector(res3, e);
             double minuend = res4 / lamda[i];
             double subtrahend = Math.pow(1 / (lamda[i]), 2);
-            result[i] = (minuend - subtrahend) * (1 / Vi[i]);
+            result[i] = (minuend - subtrahend) * (1 / dispersion[i]);
         }
         return result;
     }
@@ -594,32 +594,48 @@ public class Main {
         infGenerator.printMatrix();
         System.out.println();
 
-
         double[] e = new double[N];
-        e[0] = 1;
-        for (int i = 1; i < N; i++) {
-            e[i] = 0;
-        }
 
-        double[] f = new double[N];
-        for (int i = 0; i < N; i++) {
-            f[i] = 0;
+        Matrix tmp = new Matrix(N);
+        double[] tau = tmp.Gauss(infGenerator, e);
+        for (int i = 0; i < tau.length; i++) {
+            System.out.println(tau[i] + " ");
         }
         System.out.println();
-//
-//        Matrix tmp = new Matrix(N);
-//        double[] Q = tmp.Gauss(infGenerator, e);
-//        System.out.println("Print inverse matrix");
-//        infGenerator.printInverseMatrix();
-//
-//        double[] lamdaArray = tmp.calculateLamda(Q, e, arrD);
-//        for (int j = 0; j < lamdaArray.length; j++) {
-//            System.out.println("lamda " + j + " = " + lamdaArray[j] + " ");
-//        }
-//        System.out.println();
-//
-//        Matrix[][] Q_inf_gen = new Matrix[N + 1][N + 1];
-//        Q_inf_gen = Matrix.infGeneratorQ(arrD, mu, Q_inf_gen, N, W);
+
+        double[] lamdaArray = tmp.calculateLamda(tau, e, arrD);
+        for (int j = 1; j < lamdaArray.length; j++) {
+            System.out.println("lamda " + j + " = " + lamdaArray[j] + " ");
+        }
+        System.out.println();
+
+        double[] dispersion = Matrix.calculateDispersion(lamdaArray, arrD, tau);
+        for (int j = 1; j < dispersion.length; j++) {
+            System.out.println("dispersion " + j + " = " + dispersion[j] + " ");
+        }
+        System.out.println();
+
+        double[] koeffKorel = Matrix.calculateKoeffKorrel(lamdaArray, arrD, tau, dispersion);
+        for (int j = 1; j < koeffKorel.length; j++) {
+            System.out.println("koeff korellaci " + j + " = " + koeffKorel[j] + " ");
+        }
+        System.out.println();
+
+
+
+        /*////////////////////////////////////////*/
+        Matrix[][] Q_inf_gen = new Matrix[N + 1][N + 1];
+        Q_inf_gen = Matrix.infGeneratorQ(arrD, mu, Q_inf_gen, N, W);
+
+        System.out.println("Q[0][0]:");
+        Q_inf_gen[0][0].printMatrix();
+        System.out.println();
+
+        System.out.println("Q[0][1]:");
+        Q_inf_gen[0][0].printMatrix();
+        System.out.println();
+
+
 //        for (int i = 1; i < N-1; i++) {
 //            for (int j = i; j <= i+2; j++) {
 //                Q_inf_gen[i][j].printMatrix();
