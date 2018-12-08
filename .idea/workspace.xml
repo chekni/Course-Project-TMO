@@ -3,6 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="3da91f5b-4c73-485e-b7fc-7f2b56ee37c0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document.log" beforeDir="false" afterPath="$PROJECT_DIR$/document.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document.tex" beforeDir="false" afterPath="$PROJECT_DIR$/document.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputData/D0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/D0.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputData/D1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/D1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputData/D2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/D2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputData/Mu.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/Mu.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inputData/N.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/N.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CourseProject/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CourseProject/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CourseProject/com/company/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CourseProject/com/company/Matrix.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -48,25 +57,25 @@
     <session id="692331136">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="W" value="2" />
-          <entry key="java" value="9050" />
-          <entry key="txt" value="4" />
+          <entry key="java" value="10697" />
+          <entry key="txt" value="71" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9050" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="JAVA" value="10697" />
+          <entry key="PLAIN_TEXT" value="73" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -87,20 +96,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="90">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Matrix#1;class#Matrix#0" />
-                <element signature="e#1136#1137#0" expanded="true" />
-                <element signature="e#1174#1175#0" expanded="true" />
-                <element signature="method#Matrix#2;class#Matrix#0" />
-                <element signature="method#getMatrixFromFile#0;class#Matrix#0" />
-                <element signature="method#printMatrix#0;class#Matrix#0" />
+                <element signature="e#1112#1113#0" expanded="true" />
+                <element signature="e#1158#1159#0" expanded="true" />
+                <element signature="e#1203#1204#0" expanded="true" />
+                <element signature="e#1238#1239#0" expanded="true" />
                 <element signature="method#printInverseMatrix#0;class#Matrix#0" />
+                <element signature="method#infinitesimalGenerator#0;class#Matrix#0" />
+                <element signature="method#subTwoMatrix#0;class#Matrix#0" />
                 <element signature="method#vectorMultipleMatrix#0;class#Matrix#0" />
-                <element signature="method#matrixMultipleMatrix#0;class#Matrix#0" />
-                <element signature="method#getInverseMatrix#0;class#Matrix#0" />
+                <element signature="method#calculateKoeffKorrel#0;class#Matrix#0" />
+                <element signature="method#multipleMatrixOnValue#0;class#Matrix#0" />
               </folding>
             </state>
           </provider>
@@ -110,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/inputData/Mu.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -119,7 +129,7 @@
         <entry file="file://$PROJECT_DIR$/inputData/N.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="1" selection-start-column="1" selection-end-column="1" />
+              <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -134,10 +144,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inputData/D0.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+            <state relative-caret-position="30">
+              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -146,16 +165,7 @@
         <entry file="file://$PROJECT_DIR$/inputData/D2.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inputData/D0.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -168,6 +178,11 @@
       <find>value</find>
       <find>koe</find>
       <find>print</find>
+      <find>printMatrix</find>
+      <find>I</find>
+      <find>Q</find>
+      <find>Gauss</find>
+      <find>Gauss_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,12 +192,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/inputData/data.txt" />
-        <option value="$PROJECT_DIR$/inputData/D0.txt" />
-        <option value="$PROJECT_DIR$/inputData/D2.txt" />
-        <option value="$PROJECT_DIR$/inputData/D1.txt" />
-        <option value="$PROJECT_DIR$/inputData/N.txt" />
-        <option value="$PROJECT_DIR$/inputData/Mu.txt" />
         <option value="$PROJECT_DIR$/inputData/W" />
+        <option value="$PROJECT_DIR$/inputData/N.txt" />
+        <option value="$PROJECT_DIR$/inputData/D1.txt" />
+        <option value="$PROJECT_DIR$/inputData/D2.txt" />
+        <option value="$PROJECT_DIR$/inputData/D0.txt" />
+        <option value="$PROJECT_DIR$/inputData/Mu.txt" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
     </option>
@@ -191,7 +206,7 @@
     <option name="x" value="20" />
     <option name="y" value="43" />
     <option name="width" value="1400" />
-    <option name="height" value="779" />
+    <option name="height" value="791" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -202,6 +217,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,11 +234,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544039701707" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544089965283" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
@@ -278,10 +293,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="43" width="1400" height="779" extended-state="0" />
+    <frame x="20" y="43" width="1400" height="791" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26804122" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27172312" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -290,15 +305,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32896653" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5429403" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37991267" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4248927" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32904148" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32896653" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.30422124" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32896653" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32761088" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -315,15 +330,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+        <state relative-caret-position="30">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inputData/D2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -337,40 +352,41 @@
     <entry file="file://$PROJECT_DIR$/inputData/N.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
+          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inputData/D0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inputData/Mu.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inputData/D0.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Matrix#1;class#Matrix#0" />
-            <element signature="e#1136#1137#0" expanded="true" />
-            <element signature="e#1174#1175#0" expanded="true" />
-            <element signature="method#Matrix#2;class#Matrix#0" />
-            <element signature="method#getMatrixFromFile#0;class#Matrix#0" />
-            <element signature="method#printMatrix#0;class#Matrix#0" />
+            <element signature="e#1112#1113#0" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1238#1239#0" expanded="true" />
             <element signature="method#printInverseMatrix#0;class#Matrix#0" />
+            <element signature="method#infinitesimalGenerator#0;class#Matrix#0" />
+            <element signature="method#subTwoMatrix#0;class#Matrix#0" />
             <element signature="method#vectorMultipleMatrix#0;class#Matrix#0" />
-            <element signature="method#matrixMultipleMatrix#0;class#Matrix#0" />
-            <element signature="method#getInverseMatrix#0;class#Matrix#0" />
+            <element signature="method#calculateKoeffKorrel#0;class#Matrix#0" />
+            <element signature="method#multipleMatrixOnValue#0;class#Matrix#0" />
           </folding>
         </state>
       </provider>
