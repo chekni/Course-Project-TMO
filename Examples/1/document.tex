@@ -1,0 +1,168 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{amsmath, amssymb}
+\usepackage[dvips]{graphicx}
+\usepackage{indentfirst}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{dot}{. }
+\captionsetup{justification=centering,labelsep=dot}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}\setlength{\oddsidemargin}{0mm}
+\setlength{\evensidemargin}{10mm} \setlength{\topmargin}{-11mm}
+\setlength{\textwidth}{\paperwidth} \addtolength{\textwidth}{-34mm}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-40mm}
+\def\bs{\boldsymbol}
+\usepackage{rotating, longtable, hhline}
+\renewcommand{\baselinestretch}{1.34}
+\newtheorem{remark}{Замечание}
+\newtheorem{thm}{Теорема}
+\newtheorem{lem}{Лемма}
+\newtheorem{corollary}{Следствие}
+\newcommand{\thb}{{\boldsymbol \theta}}
+\newcommand{\eb}{{\bf e}}
+\newcommand{\nut}{\nu_t, \: t \geqslant 0}
+\newcommand{\pib}{{\boldsymbol \pi}}
+\newcommand{\pb}{{\bf p}}
+\newcommand{\intzi}{\int\limits_0^\infty}
+\newenvironment{proof}{{\bf Доказательство.} \rm}{ $\Box$\par}
+\newcommand{\T}{{\bf T}}
+\newcommand{\sign}{{\rm sign }}
+\newenvironment{definition}{{\bf Определение }\rm}
+
+
+
+
+
+
+\begin{document}
+\section{Исходные данные для отладки}
+
+$N=1$.
+
+Входной $MMAP$ определим следующим образом
+Задаются  матрицы $D_0$ и $D$, которые  имеют вид
+ $$
+    D_0 = \left(\begin{array}{cc}
+     -86 & \,0.01 \\
+     0.02 & \,-2.76
+    \end{array}\right),
+   $$
+
+    $$
+    D = \left(\begin{array}{cc}
+     85 & \,0.99 \\
+     0.2 & \,2.54
+\end{array}\right)
+$$
+
+Матрицу $D$ "растаскиваем"  на две матрицы $D_1 = 0.7 D$ и $D_2 =0.3 D.$
+
+    $$
+D_1 = \left(\begin{array}{cc}
+59.5 & \,0.693 \\
+0.14 & \,1.778
+\end{array}\right)
+$$
+
+    $$
+D_2 = \left(\begin{array}{cc}
+25.5 & \,0.297 \\
+0.06 & \,0.762
+\end{array}\right)
+$$
+
+$\mu_1=20,\, \mu_2=10.$
+
+
+\section{Результаты в ходе решения}
+
+Формирование инфенитезимального генератора
+
+Его блоки:
+    $$
+Q_{0,0} = \left(\begin{array}{cc}
+     -86 & \,0.01 \\
+0.02 & \,-2.76
+\end{array}\right),
+$$
+
+
+$$
+Q_{0,1} = \left(\begin{array}{cccc}
+25.5 & \,0.297 & \,59.5 & \,0.693  \\
+0.06 & \,0.762 & \,0.14 & \,1.178  \\
+\end{array}\right),
+$$
+
+    $$
+Q_{1,0} = \left(\begin{array}{cc}
+10 & \,0 \\
+0 & \,10 \\
+20 & \,0 \\
+0 & \,20
+\end{array}\right),
+$$
+
+    $$
+Q_{1,1} = \left(\begin{array}{cccc}
+-11 & \,1 & \,0 & \,0  \\
+0.22 & \,-10.22 & \,0 & \,0  \\
+0 & \,0 & \,-21& \,1  \\
+0 & \,0 & \,0.22 & \,-20.22  \\
+\end{array}\right),
+$$
+
+
+ $$
+G_0 = \left(\begin{array}{cc}
+0.910873440285205& \,0.08912655971479502  \\
+0.0196078431372549 & \,0.9803921568627452  \\
+0.9528746465598492 & \,0.0471253534401508\\
+0.010367577756833175 & \,0.9896324222431668 \\
+\end{array}\right),
+$$
+
+Пересчитываем диагональные матрицы инфинетезимального генератора
+
+    $$
+Q_{0,0} = \left(\begin{array}{cc}
+-6.0636775416190005 & \,6.063677541618994 \\
+0.24142958665772882 & \,-0.24142958665772873 
+\end{array}\right),
+$$
+
+Считаем матрицы $F_i$
+
+    $$
+F_0 = \left(\begin{array}{cc}
+1 & \,0\\
+0 & \,1
+\end{array}\right),
+$$
+
+
+
+$$
+F_1 = \left(\begin{array}{cccc}
+2.323309625668449 & \,0.2563903743315509 & \,2.8351613100848256& \,0.17448868991517436   \\
+0.0069593582887700536& \,0.07524064171122996 & \,0.007591800188501414 & \,0.0883081998114986   \\
+\end{array}\right),
+$$
+
+Вычислим векторы $q_i$
+
+$
+q_0 = (0.0382911157171274  \;\;\;0.1586015875155026),
+$
+
+$
+q_1 = (0.09006588299587463  \;\;\; 0.021750758713373237),
+$
+
+$\lambda_1 = 12.426606557377042$
+
+$\lambda_2 = 5.325688524590161$
+
+\end{document}

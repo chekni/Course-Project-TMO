@@ -39,13 +39,24 @@ class Matrix {
     }
 
     public void setMatrixInverse(double[][] inverse) {
-        this.inverse = inverse;
+        int rows = inverse.length;
+        int cols = inverse[0].length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                this.inverse[i][j] = inverse[i][j];
+            }
+        }
     }
 
     public void setMatrixArray(double[][] matrixArray) {
-        this.matrixArray = matrixArray;
+        int rows = matrixArray.length;
+        int cols = matrixArray[0].length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                this.matrixArray[i][j] = matrixArray[i][j];
+            }
+        }
     }
-
 
     public double[][] getMatrixInverse() {
         return this.inverse;
@@ -54,7 +65,6 @@ class Matrix {
     public int getLength() {
         return rowsCount;
     }
-
 
     public Matrix(String filePath) throws FileNotFoundException {
         this.filePath = filePath;
@@ -90,7 +100,7 @@ class Matrix {
         if (this.inverse != null) {
             for (int i = 0; i < this.rowsCount; i++) {
                 for (int j = 0; j < this.colsCount; j++) {
-                    System.out.print(inverse[i][j] + " ");
+                    System.out.print(this.inverse[i][j] + " ");
                 }
                 System.out.println();
             }
@@ -147,7 +157,6 @@ class Matrix {
     }
 
     public static double vectorMultipleVector(double[] v1, double[] v2) {
-
         double result = 0;
         for (int i = 0; i < v1.length; i++) {
             result += v1[i] * v2[i];
@@ -155,14 +164,18 @@ class Matrix {
         return result;
     }
 
-    public double[] calculateLamda(double[] Q, double[] e, Matrix[] Di) {
-        int count = Di.length;
-        double[] lamda = new double[count];
-        for (int i = 1; i < count; i++) {
-            double[] tmp = Di[i].vectorMultipleMatrix(Q);
-            lamda[i] = vectorMultipleVector(tmp, e);
+    public static double[] calculateLamda(double[] tau, Matrix[] Di) {
+        int count = Di.length - 1;
+        double[] e = new double[Di[0].getLength()];
+        for (int y = 0; y < e.length; y++) {
+            e[y] = 1;
         }
-        return lamda;
+        double[] lambda = new double[count];
+        for (int i = 0; i < count; i++) {
+            double[] tmp = Di[i + 1].vectorMultipleMatrix(tau);
+            lambda[i] = vectorMultipleVector(tmp, e);
+        }
+        return lambda;
     }
 
     public static double[] calculateDispersion(double[] lamda, Matrix[] Di, double[] tau) {
@@ -172,7 +185,7 @@ class Matrix {
             Matrix sum = sumTwoMatrix(Di[0], Di[i]);
             sum.multipleMatrixOnValue(-1);
             double[] f = new double[n];
-            Gauss(sum, f);
+            Matrix.calculateInverseMatrix(sum);
             Matrix tmp = new Matrix(sum.getMatrixInverse());
 
             double[] vectorMultMatr = tmp.vectorMultipleMatrix(tau);
@@ -213,33 +226,19 @@ class Matrix {
     public static Matrix matrixMultipleMatrix(Matrix A, Matrix B) {
         int rows = A.rowsCount;
         int cols = B.colsCount;
+        int N = A.colsCount;
         double sum;
         Matrix result = new Matrix(rows, cols);
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 sum = 0;
-                for (int k = 0; k < rows; k++) {
+                for (int k = 0; k < N; k++) {
                     sum += A.matrixArray[i][k] * B.matrixArray[k][j];
                 }
                 result.setMatrixArray(i, j, sum);
             }
         }
         return result;
-
-
-//        int n = A.getLength();
-//        double sum = 0;
-//        Matrix result = new Matrix(n);
-//        for (int i = 0; i < n; i++) {
-//            for (int j = 0; j < n; j++) {
-//                sum = 0;
-//                for (int k = 0; k < n; k++) {
-//                    sum += A.matrixArray[i][k] * B.matrixArray[k][j];
-//                }
-//                result.setMatrixArray(i, j, sum);
-//            }
-//        }
-//        return result;
     }
 
     public static double[] calculateKoeffKorrel(double[] lamda, Matrix[] Di, double[] tau, double[] dispersion) {
@@ -247,10 +246,8 @@ class Matrix {
         double[] result = new double[n];
         for (int i = 1; i < n; i++) {
             Matrix sum = sumTwoMatrix(Di[0], Di[i]);
-            double[] f = new double[n];
-            Gauss(sum, f);
+            Matrix.calculateInverseMatrix(sum);
             Matrix inverse = new Matrix(sum.getMatrixInverse());
-
             double[] res1 = inverse.vectorMultipleMatrix(tau);
             double[] res2 = Di[i].vectorMultipleMatrix(res1);
             double[] res3 = inverse.vectorMultipleMatrix(res2);
@@ -266,40 +263,33 @@ class Matrix {
         return result;
     }
 
-
-    public static double[] Gauss(Matrix matrix, double[] f) {
-        int n = matrix.getLength();
-
-        for (int i = 0; i < n; i++) {
-            matrix.inverse[i][i] = 1;
-        }
-
+    public static double[] Gauss(Matrix matrix) {
+        double[] f = new double[matrix.getLength()];
+        int n = f.length;
         f[0] = 1;
-        for (int i = 0; i < n; i++) {
-            matrix.matrixArray[i][0] = 1;
+        Matrix res = new Matrix(matrix.matrixArray);
+
+        for (int t = 0; t < res.rowsCount; t++) {
+            res.setMatrixArray(t, 0, 1);
         }
 
         double[] x = new double[n];
-        double del;
+        double tmp;
         for (int i = 0; i < n; i++) {
-            del = matrix.matrixArray[i][i];
-            f[i] /= del;
-            //делим строку
+            tmp = res.matrixArray[i][i];
+            f[i] /= tmp;
             for (int j = n - 1; j >= i; j--) {
-                matrix.matrixArray[i][j] /= del;
-                matrix.inverse[i][j] /= del;
+                res.matrixArray[i][j] /= tmp;
             }
             for (int j = i + 1; j < n; j++) {
-                del = matrix.matrixArray[j][i];
-                f[j] -= del * f[i];
+                tmp = matrix.matrixArray[j][i];
+                f[j] -= tmp * f[i];
                 for (int k = n - 1; k >= i; k--) {
-                    matrix.matrixArray[j][k] -= del * matrix.matrixArray[i][k];
-                    matrix.inverse[j][k] -= del * matrix.inverse[i][k];
+                    matrix.matrixArray[j][k] -= tmp * matrix.matrixArray[i][k];
                 }
             }
         }
         /*обратный ход*/
-        matrix.setMatrixInverse(getInverseMatrix(matrix));
         x[n - 1] = f[n - 1];
         for (int i = n - 2; i >= 0; i--) {
             x[i] = f[i];
@@ -311,54 +301,83 @@ class Matrix {
     }
 
 
-    public static double[] Gauss_without_f(Matrix matrix) {
+    public static double[][] calculateInverseMatrix(Matrix matrix) {
+        Matrix remember = new Matrix(matrix.getLength());
+        remember.setMatrixArray(matrix.matrixArray);
         int n = matrix.getLength();
-        double[] f = new double[matrix.rowsCount];
-
+        Matrix test = new Matrix(matrix.matrixArray);
+        //создаем единичную матрицу для формирования обратной
         for (int i = 0; i < n; i++) {
-            matrix.inverse[i][i] = 1;
+            test.inverse[i][i] = 1;
         }
 
-        for (int i = 0; i < n; i++) {
-            matrix.matrixArray[i][0] = 1;
-        }
-
-        double[] x = new double[n];
         double del;
+
         for (int i = 0; i < n; i++) {
-            del = matrix.matrixArray[i][i];
-            f[i] /= del;
+            del = test.matrixArray[i][i];
             //делим строку
-            for (int j = n - 1; j >= i; j--) {
-                matrix.matrixArray[i][j] /= del;
-                matrix.inverse[i][j] /= del;
+            for (int j = 0; j < n; j++) {
+                test.matrixArray[i][j] /= del;
+                test.inverse[i][j] /= del;
             }
-            for (int j = i + 1; j < n; j++) {
-                del = matrix.matrixArray[j][i];
-                f[j] -= del * f[i];
-                for (int k = n - 1; k >= i; k--) {
-                    matrix.matrixArray[j][k] -= del * matrix.matrixArray[i][k];
-                    matrix.inverse[j][k] -= del * matrix.inverse[i][k];
+
+            double[] str = new double[n];
+            double[] str2 = new double[n];
+            for (int w = 0; w < n; w++) {
+                str[w] = test.matrixArray[i][w];
+                str2[w] = test.inverse[i][w];
+            }
+
+            //зануляем элементы под единицей
+            for (int t = i + 1; t < n; t++) { //выбираем строку для зануления
+                del = test.matrixArray[t][i];
+                double[] change1 = Matrix.multipleVectorValue(str, del);
+                double[] change2 = Matrix.multipleVectorValue(str2, del);
+                for (int k = 0; k < n; k++) { //зануляем элемент и изменяем строку
+                    test.matrixArray[t][k] = test.matrixArray[t][k] - change1[k];
+                    test.inverse[t][k] = test.inverse[t][k] - change2[k];
                 }
             }
         }
+
         /*обратный ход*/
-        matrix.setMatrixInverse(getInverseMatrix(matrix));
-        x[n - 1] = f[n - 1];
-        for (int i = n - 2; i >= 0; i--) {
-            x[i] = f[i];
-            for (int j = i + 1; j < n; j++) {
-                x[i] -= matrix.matrixArray[i][j] * x[j];
+        double[] str = new double[n];
+
+        for (int i = n - 1; i > 0; i--) {//столбцы
+            for (int w = 0; w < n; w++) {
+                str[w] = test.inverse[i][w];
+            }
+            for (int j = i - 1; j >= 0; j--) {//строки
+                del = test.matrixArray[j][i];
+                test.matrixArray[j][i] = 0;
+                double[] tmp = str;
+                for (int w = 0; w < n; w++) {
+                    tmp[w] = str[w];
+                    test.inverse[j][w] -= del * tmp[w];
+                }
             }
         }
-        return x;
+        matrix.setMatrixArray(remember.matrixArray);
+        matrix.setMatrixInverse(test.inverse);
+
+        return test.getMatrixInverse();
     }
 
+    private static double[] multipleVectorValue(double[] vector, double value) {
+        double[] tmp = new double[vector.length];
+        for (int j = 0; j < vector.length; j++) {
+            tmp[j] = vector[j];
+        }
+        for (int i = 0; i < tmp.length; i++) {
+            tmp[i] *= value;
+        }
+        return tmp;
+    }
 
     private static double[][] getInverseMatrix(Matrix matrix) {
         int n = matrix.getLength();
         for (int i = n - 2; i > 0; i--) {
-            for (int j = n - 1; j < i; j--) {
+            for (int j = 0; j < n; j++) {
                 double del = matrix.matrixArray[i][j];
                 double[] tmp = matrix.inverse[i - 1];
                 for (int k = 0; k < n; k++) {
@@ -372,12 +391,18 @@ class Matrix {
     }
 
     private Matrix multipleMatrixOnValue(double a) {
+        Matrix tmp = new Matrix(this.rowsCount, this.colsCount);
+        for (int i = 0; i < this.rowsCount; i++)
+            for (int j = 0; j < this.colsCount; j++) {
+                tmp.setMatrixArray(i, j, this.matrixArray[i][j]);
+            }
+
         for (int i = 0; i < this.getLength(); i++) {
             for (int j = 0; j < this.getLength(); j++) {
-                this.matrixArray[i][j] = a * this.matrixArray[i][j];
+                tmp.matrixArray[i][j] = a * tmp.matrixArray[i][j];
             }
         }
-        return this;
+        return tmp;
     }
 
     public static Matrix kroneckerMultiple(Matrix A, Matrix B) {
@@ -426,48 +451,43 @@ class Matrix {
 
     private static Matrix createDiagonalMatrix(int n, double m_from, double[] mu) {
         Matrix res = new Matrix(n);
-        for (int i = 0; i < n; i++, m_from++) {
-            res.matrixArray[i][i] = (n - m_from) * mu[0] + m_from * mu[1];
-        }
-        return res;
-    }
-
-    private static Matrix createUnderDiagonalMatrix(int n, double m_from, double[] mu) {
-        Matrix res = new Matrix(n);
-        for (int i = 1; i < n; i++, m_from++) {
-            res.matrixArray[i][i - 1] = m_from * mu[1];
+        n--;
+        for (int i = 0; i <= n; i++, m_from++) {
+            res.matrixArray[i][i] = (n - m_from) * mu[1] + m_from * mu[0];
         }
         return res;
     }
 
     public static Matrix[][] infGeneratorQ(Matrix[] Di, double[] mu, Matrix[][] Q, int N, int W) {
+
         //диагональные матрицы
         Q[0][0] = Di[0];
-        for (int i = 1; i < N; i++) {
-            Matrix I = Matrix.I(i + 1);
-            Q[i][i] = subTwoMatrix(kroneckerMultiple(I, Di[0]), kroneckerMultiple(I, Matrix.I(W + 1)));
-        }
-        Matrix mult1, mult2;
-        Matrix infGen = Matrix.infinitesimalGenerator(Di);
-        mult1 = Matrix.kroneckerMultiple(I(N + 1), infGen);
-        mult2 = Matrix.kroneckerMultiple(createDiagonalMatrix(N + 1, 0, mu), I(W + 1));
 
-        Q[N][N] = Matrix.subTwoMatrix(mult1, mult2);
+        for (int n = 1; n < N; n++) {
+            Matrix diagonal = new Matrix(n + 1);
+            for (int m = 0; m < n + 1; m++) {
+                diagonal.matrixArray[m][m] = (n - m) * mu[1] + m * mu[0];
+            }
+            Q[n][n] = subTwoMatrix(kroneckerMultiple(I(n + 1), Di[0]), kroneckerMultiple(diagonal, Matrix.I(W + 1)));
+        }
+
+        Matrix mul1, mul2;
+        Matrix infGen = Matrix.infinitesimalGenerator(Di);
+        mul1 = Matrix.kroneckerMultiple(I(N + 1), infGen);
+        mul2 = Matrix.kroneckerMultiple(createDiagonalMatrix(N + 1, 0, mu), I(W + 1));
+
+        Q[N][N] = Matrix.subTwoMatrix(mul1, mul2);
 
         //поддиагональные матрицы
         for (int n = 1; n <= N; n++) {
             Matrix M1 = new Matrix(n + 1, n);
             Matrix M2 = new Matrix(n + 1, n);
-            int m_from = 0;
-            for (int j = 0; j < n; j++, m_from++) {
-                M1.matrixArray[j][j] = (n - m_from) * mu[1];
+            for (int j = 0; j < n; j++) {
+                M1.matrixArray[j][j] = (n - j) * mu[1];
             }
-
-            m_from = 1;
-            for (int j = 1; j < n; j++, m_from++) {
-                M1.matrixArray[j][j] = m_from * mu[0];
+            for (int j = 1; j <= n; j++) {
+                M2.matrixArray[j][j - 1] = j * mu[0];
             }
-
             Matrix tmp = Matrix.kroneckerMultipleRectangleMatrix(M1, I(W + 1));
             M2 = Matrix.kroneckerMultipleRectangleMatrix(M2, I(W + 1));
             Q[n][n - 1] = Matrix.sumTwoMatrix(tmp, M2);
@@ -489,7 +509,6 @@ class Matrix {
                         }
                     }
                 }
-                //int startIndex = k*size_D
             }
             Q[n][n + 1] = Q_tmp;
         }
@@ -499,35 +518,49 @@ class Matrix {
 
     public static Matrix[] G_i(Matrix[][] inf_gen_Q, int N) {
         Matrix[] G = new Matrix[N];
+
         Matrix tmp = inf_gen_Q[N][N].multipleMatrixOnValue(-1);
-        double[] f = new double[tmp.getLength()];
-        for (int i = 0; i < tmp.getLength(); i++) {
-            f[i] = 0;
-        }
-        Matrix.Gauss_without_f(tmp);
-        Matrix inversion = new Matrix(tmp.colsCount);
+        //находим последнее G[N-1]
+        Matrix.calculateInverseMatrix(tmp);
+//        tmp.printMatrix();
+//        System.out.println("Inversion (-Q[N][N]):");
+//        tmp.printInverseMatrix();
+
+        Matrix inversion = new Matrix(tmp.getLength());
         inversion.setMatrixArray(tmp.getMatrixInverse());
         G[N - 1] = Matrix.matrixMultipleMatrix(inversion, inf_gen_Q[N][N - 1]);
+//        System.out.println("Firstly G[" + (N - 1) + "]");
+//        G[N - 1].printMatrix();
 
 
+        //уравнение обратной рекурсии
         for (int i = N - 2; i >= 0; i--) {
-            inf_gen_Q[i + 1][i + 2].printMatrix();
-            Matrix mult = Matrix.matrixMultipleMatrix(inf_gen_Q[i + 1][i + 2], G[i + 1]);
-            Matrix sum = Matrix.sumTwoMatrix(inf_gen_Q[i + 1][i + 1], mult);
+//            System.out.println("Для умножения G[" + (i + 1) + "]");
+//            G[i + 1].printMatrix();
+            Matrix mul = Matrix.matrixMultipleMatrix(inf_gen_Q[i + 1][i + 2], G[i + 1]);
+
+            Matrix sum = Matrix.sumTwoMatrix(inf_gen_Q[i + 1][i + 1], mul);
             sum = sum.multipleMatrixOnValue(-1);
-            Matrix.Gauss(sum, f);
+
+
+            Matrix.calculateInverseMatrix(sum);
+
             Matrix inversionM = new Matrix(sum.getMatrixInverse());
+
             Matrix result = Matrix.matrixMultipleMatrix(inversionM, inf_gen_Q[i + 1][i]);
             G[i] = result;
+//
+//            System.out.println("Result G[" + i + "]");
+//            G[i].printMatrix();
         }
         return G;
     }
 
-
-    public static Matrix[][] new_inf_gen_Q(Matrix[][] Q, Matrix[] G) {
-        int N = G.length;
+    public static Matrix[][] new_inf_gen_Q(Matrix[][] Q, Matrix[] G, int N) {
         for (int i = 0; i < N; i++) {
-            Q[i][i] = Matrix.sumTwoMatrix(Q[i][i], Matrix.matrixMultipleMatrix(Q[i][i + 1], G[i]));
+            Matrix mul = Matrix.matrixMultipleMatrix(Q[i][i + 1], G[i]);
+            Matrix sum = Matrix.sumTwoMatrix(Q[i][i], mul);
+            Q[i][i] = sum;
         }
         return Q;
     }
@@ -537,17 +570,14 @@ class Matrix {
         Matrix[] F = new Matrix[N];
         F[0] = I(W + 1);
         for (int i = 1; i < N; i++) {
-            Matrix tmp = Matrix.matrixMultipleMatrix(F[i - 1], Q[i - 1][i]);
-            double[] f = new double[N + 1];
-            for (int j = 0; j <= N; j++) {
-                f[j] = 0;
-            }
-            Matrix inverse = Q[i][i];
-            inverse.multipleMatrixOnValue(-1);
-            Matrix.Gauss_without_f(inverse);
-            inverse = new Matrix(Q[i][i].getMatrixInverse());
+            Matrix for_inverse = Q[i][i];
+            for_inverse = for_inverse.multipleMatrixOnValue(-1);
+            Matrix.calculateInverseMatrix(for_inverse);
+            Matrix inv = new Matrix(for_inverse.getMatrixInverse());
 
-            Matrix result = Matrix.matrixMultipleMatrix(tmp, inverse);
+            Matrix tmp = Matrix.matrixMultipleMatrix(F[i - 1], Q[i - 1][i]);
+            Matrix result = Matrix.matrixMultipleMatrix(tmp, inv);
+
             F[i] = result;
         }
 
@@ -566,15 +596,21 @@ class Matrix {
         for (int i = 0; i < N; i++) {
             sum = Matrix.sumTwoVectors(sum, Matrix.matrixMultipleVector(F[i], e));
         }
-        Matrix tmp = Q[0][0];
-        double[] f = new double[countCols];
 
-        return Matrix.Gauss(tmp, f);
+        Matrix tmp = Q[0][0];
+
+        // заменяем вектор-столбец
+        for (int k = 0; k < tmp.getLength(); k++) {
+            tmp.setMatrixArray(k, 0, sum[k]);
+        }
+
+        double[] res = Matrix.Gauss(tmp);
+        return res;
     }
 
-    private static double[] vectorMultipleMatrix(Matrix A, double[] b) {
+    private static double[] vectorMultipleMatrix(double[] b, Matrix A) {
         double[] res = new double[A.colsCount];
-        double sum = 0;
+        double sum;
         for (int i = 0; i < A.colsCount; i++) {
             sum = 0;
             for (int j = 0; j < b.length; j++) {
@@ -592,7 +628,7 @@ class Matrix {
         double[][] qi = new double[N][q0.length];
         qi[0] = q0;
         for (int i = 1; i < N; i++) {
-            qi[i] = Matrix.vectorMultipleMatrix(F[i], q0);
+            qi[i] = Matrix.vectorMultipleMatrix(q0, F[i]);
         }
 
         return qi;
@@ -628,8 +664,8 @@ public class Main {
 
         Scanner sc;
         int N = 0;
-        double[] mu = new double[N];
         int W = 1;
+        double[] mu = new double[2];
         Matrix infGenerator;
         Matrix[] arrD;
         try {
@@ -648,51 +684,51 @@ public class Main {
 
         try {
             Scanner sc2 = new Scanner(new File("inputData/Mu.txt"));
-            mu = new double[N];
-            for (int i = 0; i < N; i++) {
+
+            for (int i = 0; i < 2; i++) {
+
                 mu[i] = sc2.nextDouble();
             }
-
 
         } catch (FileNotFoundException exception) {
         }
 
-        infGenerator = new Matrix(N);
-        System.out.println(N);
-        arrD = new Matrix[N + 1];
+        for (int i = 0; i < mu.length; i++) {
+            System.out.println("mu [" + (i + 1) + "] = " + mu[i]);
+        }
+        System.out.println();
+
+        arrD = new Matrix[3];
         arrD[0] = D0;
         arrD[1] = D1;
         arrD[2] = D2;
 
         infGenerator = Matrix.infinitesimalGenerator(arrD);
-        System.out.println("D(1): ");
         infGenerator.printMatrix();
-        System.out.println();
-
-        double[] e = new double[N];
 
         Matrix tmp = new Matrix(N);
-        double[] tau = tmp.Gauss(infGenerator, e);
+        double[] tau = tmp.Gauss(infGenerator);
+        System.out.println("Tau:");
         for (int i = 0; i < tau.length; i++) {
-            System.out.println(tau[i] + " ");
+            System.out.print(tau[i] + " ");
         }
         System.out.println();
 
-        double[] lamdaArray = tmp.calculateLamda(tau, e, arrD);
-        for (int j = 1; j < lamdaArray.length; j++) {
-            System.out.println("lamda " + j + " = " + lamdaArray[j] + " ");
+        double[] lamdaArray = Matrix.calculateLamda(tau, arrD);
+        for (int j = 0; j < lamdaArray.length; j++) {
+            System.out.println("lamda " + (j + 1) + " = " + lamdaArray[j] + " ");
         }
         System.out.println();
 
         double[] dispersion = Matrix.calculateDispersion(lamdaArray, arrD, tau);
-        for (int j = 1; j < dispersion.length; j++) {
-            System.out.println("dispersion " + j + " = " + dispersion[j] + " ");
+        for (int j = 0; j < dispersion.length; j++) {
+            System.out.println("dispersion " + (j + 1) + " = " + dispersion[j] + " ");
         }
         System.out.println();
 
         double[] koeffKorel = Matrix.calculateKoeffKorrel(lamdaArray, arrD, tau, dispersion);
-        for (int j = 1; j < koeffKorel.length; j++) {
-            System.out.println("koeff korellaci " + j + " = " + koeffKorel[j] + " ");
+        for (int j = 0; j < koeffKorel.length; j++) {
+            System.out.println("koeff korellaci " + (j + 1) + " = " + koeffKorel[j] + " ");
         }
         System.out.println();
 
@@ -702,6 +738,38 @@ public class Main {
         Matrix[][] Q_inf_gen = new Matrix[N + 1][N + 1];
         Q_inf_gen = Matrix.infGeneratorQ(arrD, mu, Q_inf_gen, N, W);
 
+
+//        for (int k = 0; k <= N; k++) {
+//            if (k == 0) {
+//                System.out.println("Q[" + k + "][" + k + "]:");
+//                Q_inf_gen[k][k].printInverseMatrix();
+//                System.out.println();
+//                System.out.println("Q[" + k + "][" + (k + 1) + "]:");
+//                Q_inf_gen[k][k + 1].printInverseMatrix();
+//                System.out.println();
+//
+//            }
+//            if (k == N) {
+//                System.out.println("Q[" + k + "][" + (k-1) + "]:");
+//                Q_inf_gen[k][k-1].printInverseMatrix();
+//                System.out.println();
+//                System.out.println("Q[" + k + "][" + k + "]:");
+//                Q_inf_gen[k][k].printInverseMatrix();
+//                System.out.println();
+//            } else
+//                {
+//                    System.out.println("Q[" + k + "][" + (k-1) + "]:");
+//                    Q_inf_gen[k][k-1].printInverseMatrix();
+//                    System.out.println();
+//                    System.out.println("Q[" + k + "][" + k + "]:");
+//                    Q_inf_gen[k][k].printInverseMatrix();
+//                    System.out.println();
+//                    System.out.println("Q[" + k + "][" + (k + 1) + "]:");
+//                    Q_inf_gen[k][k + 1].printInverseMatrix();
+//                    System.out.println();
+//                }
+//        }
+
         System.out.println("Q[0][0]:");
         Q_inf_gen[0][0].printMatrix();
         System.out.println();
@@ -718,21 +786,34 @@ public class Main {
         System.out.println("Q[1][1]:");
         Q_inf_gen[1][1].printMatrix();
         System.out.println();
+//
+//        System.out.println("Q[1][2]:");
+//        Q_inf_gen[1][2].printMatrix();
+//        System.out.println();
+//
+//
+//        System.out.println("Q[2][1]:");
+//        Q_inf_gen[2][1].printMatrix();
+//        System.out.println();
+//
+//        System.out.println("Q[2][2]:");
+//        Q_inf_gen[2][2].printMatrix();
+//        System.out.println();
+////
+//        System.out.println("Q[2][3]:");
+//        Q_inf_gen[2][3].printMatrix();
+//        System.out.println();
+//
+//        System.out.println("Q[3][2]:");
+//        Q_inf_gen[3][2].printMatrix();
+//        System.out.println();
+//
+//        System.out.println("Q[3][3]:");
+//        Q_inf_gen[3][3].printMatrix();
+//        System.out.println();
 
-        System.out.println("Q[1][2]:");
-        Q_inf_gen[1][2].printMatrix();
         System.out.println();
-
-
-        System.out.println("Q[2][1]:");
-        Q_inf_gen[2][1].printMatrix();
-        System.out.println();
-
-        System.out.println("Q[2][2]:");
-        Q_inf_gen[2][2].printMatrix();
-        System.out.println();
-
-
+        System.out.println("Матрицы G");
         Matrix[] Gi = Matrix.G_i(Q_inf_gen, N);
         for (int i = 0; i < Gi.length; i++) {
             System.out.println("G[" + i + "]:");
@@ -740,39 +821,24 @@ public class Main {
         }
 
 
-        Q_inf_gen = Matrix.new_inf_gen_Q(Q_inf_gen, Gi);
+        Q_inf_gen = Matrix.new_inf_gen_Q(Q_inf_gen, Gi, N);
 
 
         System.out.println("Q[0][0]:");
         Q_inf_gen[0][0].printMatrix();
         System.out.println();
 
-        System.out.println("Q[0][1]:");
-        Q_inf_gen[0][1].printMatrix();
-        System.out.println();
-
-
-        System.out.println("Q[1][0]:");
-        Q_inf_gen[1][0].printMatrix();
-        System.out.println();
-
         System.out.println("Q[1][1]:");
         Q_inf_gen[1][1].printMatrix();
         System.out.println();
-
-        System.out.println("Q[1][2]:");
-        Q_inf_gen[1][2].printMatrix();
-        System.out.println();
-
-
-        System.out.println("Q[2][1]:");
-        Q_inf_gen[2][1].printMatrix();
-        System.out.println();
-
-        System.out.println("Q[2][2]:");
-        Q_inf_gen[2][2].printMatrix();
-        System.out.println();
-
+//
+//        System.out.println("Q[2][2]:");
+//        Q_inf_gen[2][2].printMatrix();
+//        System.out.println();
+//
+//        System.out.println("Q[3][3]:");
+//        Q_inf_gen[3][3].printMatrix();
+//        System.out.println();
 
         Matrix[] F = Matrix.Fi(Q_inf_gen, W);
         for (int i = 0; i < F.length; i++) {
@@ -781,10 +847,6 @@ public class Main {
         }
 
         double[] q0 = Matrix.calculateQ0(F, Q_inf_gen);
-        for (int i = 0; i < q0.length; i++) {
-            System.out.println("q0[" + (i + 1) + "] = " + q0[i]);
-        }
-        System.out.println();
 
         double[][] qi = Matrix.calculateQi(F, q0, W);
         for (int i = 0; i < F.length; i++) {
@@ -795,6 +857,14 @@ public class Main {
             System.out.println();
         }
 
+//        double[][] t = {{1, -1, 2}, {2, 1, -3}, {3, 0, 2}};
+//        Matrix poi = new Matrix(3);
+//        poi.setMatrixArray(t);
+//        poi.printMatrix();
+//        double[] m = Matrix.Gauss(poi);
+//        for (int p = 0; p < m.length; p++) {
+//            System.out.print(m[p] + " ");
+//        }
 
     }
 }

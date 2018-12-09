@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3da91f5b-4c73-485e-b7fc-7f2b56ee37c0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document.log" beforeDir="false" afterPath="$PROJECT_DIR$/document.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document.tex" beforeDir="false" afterPath="$PROJECT_DIR$/document.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputData/D0.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/D0.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inputData/D1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/D1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputData/D2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/D2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputData/Mu.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/Mu.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inputData/N.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/N.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CourseProject/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CourseProject/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CourseProject/com/company/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CourseProject/com/company/Matrix.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -68,14 +62,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="W" value="2" />
-          <entry key="java" value="10697" />
-          <entry key="txt" value="71" />
+          <entry key="java" value="14960" />
+          <entry key="txt" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10697" />
-          <entry key="PLAIN_TEXT" value="73" />
+          <entry key="JAVA" value="14960" />
+          <entry key="PLAIN_TEXT" value="82" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -96,21 +90,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="453">
+              <caret line="607" column="18" selection-start-line="607" selection-start-column="18" selection-end-line="607" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#Matrix#0;class#Matrix#0" />
                 <element signature="method#Matrix#1;class#Matrix#0" />
-                <element signature="e#1112#1113#0" expanded="true" />
-                <element signature="e#1158#1159#0" expanded="true" />
-                <element signature="e#1203#1204#0" expanded="true" />
-                <element signature="e#1238#1239#0" expanded="true" />
-                <element signature="method#printInverseMatrix#0;class#Matrix#0" />
-                <element signature="method#infinitesimalGenerator#0;class#Matrix#0" />
-                <element signature="method#subTwoMatrix#0;class#Matrix#0" />
+                <element signature="e#916#917#0" expanded="true" />
+                <element signature="e#960#961#0" expanded="true" />
+                <element signature="e#1268#1269#0" expanded="true" />
+                <element signature="e#1300#1301#0" expanded="true" />
+                <element signature="method#Matrix#3;class#Matrix#0" />
+                <element signature="method#getMatrixFromFile#0;class#Matrix#0" />
+                <element signature="method#printMatrix#0;class#Matrix#0" />
                 <element signature="method#vectorMultipleMatrix#0;class#Matrix#0" />
+                <element signature="method#sumTwoVectors#0;class#Matrix#0" />
                 <element signature="method#calculateKoeffKorrel#0;class#Matrix#0" />
-                <element signature="method#multipleMatrixOnValue#0;class#Matrix#0" />
+                <element signature="method#kroneckerMultiple#0;class#Matrix#0" />
+                <element signature="method#kroneckerMultipleRectangleMatrix#0;class#Matrix#0" />
+                <element signature="method#I#0;class#Matrix#0" />
+                <element signature="method#createDiagonalMatrix#0;class#Matrix#0" />
+                <element signature="method#infGeneratorQ#0;class#Matrix#0" />
+                <element signature="method#G_i#0;class#Matrix#0" />
+                <element signature="method#new_inf_gen_Q#0;class#Matrix#0" />
               </folding>
             </state>
           </provider>
@@ -129,7 +131,7 @@
         <entry file="file://$PROJECT_DIR$/inputData/N.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -181,8 +183,13 @@
       <find>printMatrix</find>
       <find>I</find>
       <find>Q</find>
-      <find>Gauss</find>
       <find>Gauss_</find>
+      <find>set</find>
+      <find>G</find>
+      <find>mu</find>
+      <find>G_i</find>
+      <find>Gau</find>
+      <find>Gauss</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,11 +200,11 @@
       <list>
         <option value="$PROJECT_DIR$/inputData/data.txt" />
         <option value="$PROJECT_DIR$/inputData/W" />
-        <option value="$PROJECT_DIR$/inputData/N.txt" />
-        <option value="$PROJECT_DIR$/inputData/D1.txt" />
         <option value="$PROJECT_DIR$/inputData/D2.txt" />
         <option value="$PROJECT_DIR$/inputData/D0.txt" />
         <option value="$PROJECT_DIR$/inputData/Mu.txt" />
+        <option value="$PROJECT_DIR$/inputData/D1.txt" />
+        <option value="$PROJECT_DIR$/inputData/N.txt" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
       </list>
     </option>
@@ -237,7 +244,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544089965283" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544380343388" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
@@ -305,12 +312,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32896653" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4248927" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.04434907" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32904148" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32896653" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.30422124" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.30329043" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32761088" />
@@ -328,31 +335,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inputData/D2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inputData/W">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inputData/N.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -370,23 +356,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inputData/D2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inputData/N.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="453">
+          <caret line="607" column="18" selection-start-line="607" selection-start-column="18" selection-end-line="607" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#Matrix#0;class#Matrix#0" />
             <element signature="method#Matrix#1;class#Matrix#0" />
-            <element signature="e#1112#1113#0" expanded="true" />
-            <element signature="e#1158#1159#0" expanded="true" />
-            <element signature="e#1203#1204#0" expanded="true" />
-            <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="method#printInverseMatrix#0;class#Matrix#0" />
-            <element signature="method#infinitesimalGenerator#0;class#Matrix#0" />
-            <element signature="method#subTwoMatrix#0;class#Matrix#0" />
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#1268#1269#0" expanded="true" />
+            <element signature="e#1300#1301#0" expanded="true" />
+            <element signature="method#Matrix#3;class#Matrix#0" />
+            <element signature="method#getMatrixFromFile#0;class#Matrix#0" />
+            <element signature="method#printMatrix#0;class#Matrix#0" />
             <element signature="method#vectorMultipleMatrix#0;class#Matrix#0" />
+            <element signature="method#sumTwoVectors#0;class#Matrix#0" />
             <element signature="method#calculateKoeffKorrel#0;class#Matrix#0" />
-            <element signature="method#multipleMatrixOnValue#0;class#Matrix#0" />
+            <element signature="method#kroneckerMultiple#0;class#Matrix#0" />
+            <element signature="method#kroneckerMultipleRectangleMatrix#0;class#Matrix#0" />
+            <element signature="method#I#0;class#Matrix#0" />
+            <element signature="method#createDiagonalMatrix#0;class#Matrix#0" />
+            <element signature="method#infGeneratorQ#0;class#Matrix#0" />
+            <element signature="method#G_i#0;class#Matrix#0" />
+            <element signature="method#new_inf_gen_Q#0;class#Matrix#0" />
           </folding>
         </state>
       </provider>
