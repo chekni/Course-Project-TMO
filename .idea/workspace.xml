@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3da91f5b-4c73-485e-b7fc-7f2b56ee37c0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputData/D1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/D1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Examples/1/document.log" beforeDir="false" afterPath="$PROJECT_DIR$/Examples/1/document.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Examples/1/document.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Examples/1/document.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Examples/1/document.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/Examples/1/document.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Examples/1/document.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Examples/1/document.tex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/inputData/N.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputData/N.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CourseProject/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CourseProject/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CourseProject/com/company/Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CourseProject/com/company/Matrix.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -51,25 +55,25 @@
     <session id="692331136">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="W" value="2" />
-          <entry key="java" value="14960" />
-          <entry key="txt" value="80" />
+          <entry key="java" value="18815" />
+          <entry key="txt" value="93" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="14960" />
-          <entry key="PLAIN_TEXT" value="82" />
+          <entry key="JAVA" value="18815" />
+          <entry key="PLAIN_TEXT" value="95" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -90,29 +94,31 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="607" column="18" selection-start-line="607" selection-start-column="18" selection-end-line="607" selection-end-column="18" />
+            <state relative-caret-position="-84">
+              <caret line="1040" column="69" selection-start-line="1040" selection-start-column="69" selection-end-line="1040" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Matrix#0;class#Matrix#0" />
-                <element signature="method#Matrix#1;class#Matrix#0" />
+                <element signature="e#306#456#0" />
                 <element signature="e#916#917#0" expanded="true" />
                 <element signature="e#960#961#0" expanded="true" />
-                <element signature="e#1268#1269#0" expanded="true" />
-                <element signature="e#1300#1301#0" expanded="true" />
-                <element signature="method#Matrix#3;class#Matrix#0" />
-                <element signature="method#getMatrixFromFile#0;class#Matrix#0" />
-                <element signature="method#printMatrix#0;class#Matrix#0" />
-                <element signature="method#vectorMultipleMatrix#0;class#Matrix#0" />
-                <element signature="method#sumTwoVectors#0;class#Matrix#0" />
-                <element signature="method#calculateKoeffKorrel#0;class#Matrix#0" />
-                <element signature="method#kroneckerMultiple#0;class#Matrix#0" />
-                <element signature="method#kroneckerMultipleRectangleMatrix#0;class#Matrix#0" />
-                <element signature="method#I#0;class#Matrix#0" />
-                <element signature="method#createDiagonalMatrix#0;class#Matrix#0" />
-                <element signature="method#infGeneratorQ#0;class#Matrix#0" />
-                <element signature="method#G_i#0;class#Matrix#0" />
-                <element signature="method#new_inf_gen_Q#0;class#Matrix#0" />
+                <element signature="e#1720#2003#0" />
+                <element signature="e#7086#7308#0" />
+                <element signature="e#9081#9116#0" />
+                <element signature="e#16005#16706#0" />
+                <element signature="e#16712#16886#0" />
+                <element signature="e#16892#17180#0" />
+                <element signature="e#17186#19392#0" />
+                <element signature="e#19398#20815#0" />
+                <element signature="e#20821#21126#0" />
+                <element signature="e#22267#22298#0" />
+                <element signature="e#22505#22507#0" />
+                <element signature="e#26521#26523#0" />
+                <element signature="e#27222#27224#0" />
+                <element signature="e#29093#29095#0" />
+                <element signature="e#31802#31849#0" />
+                <element signature="e#30127#30129#0" />
+                <element signature="e#30787#30789#0" />
+                <element signature="e#31432#31494#0" />
               </folding>
             </state>
           </provider>
@@ -131,7 +137,7 @@
         <entry file="file://$PROJECT_DIR$/inputData/N.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="1" selection-start-column="1" selection-end-column="1" />
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -190,6 +196,10 @@
       <find>G_i</find>
       <find>Gau</find>
       <find>Gauss</find>
+      <find>vectorMultipleMatrix</find>
+      <find>tmp</find>
+      <find>transposeMatrix</find>
+      <find>Распределение числа занятых приборов в системе:</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -210,10 +220,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
-    <option name="y" value="43" />
-    <option name="width" value="1400" />
-    <option name="height" value="791" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -224,7 +233,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -241,10 +249,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544380343388" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544424347072" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
@@ -300,10 +309,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="43" width="1400" height="791" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="812" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27172312" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26752505" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -312,15 +320,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32896653" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.04434907" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32904148" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2625" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32891566" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32896653" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.30329043" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32761088" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.26805556" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -335,6 +343,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/inputData/Mu.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inputData/W">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -349,10 +364,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inputData/Mu.txt">
+    <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        <state relative-caret-position="30">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -363,45 +378,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inputData/D1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inputData/N.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="607" column="18" selection-start-line="607" selection-start-column="18" selection-end-line="607" selection-end-column="18" />
+        <state relative-caret-position="-84">
+          <caret line="1040" column="69" selection-start-line="1040" selection-start-column="69" selection-end-line="1040" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Matrix#0;class#Matrix#0" />
-            <element signature="method#Matrix#1;class#Matrix#0" />
+            <element signature="e#306#456#0" />
             <element signature="e#916#917#0" expanded="true" />
             <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#1268#1269#0" expanded="true" />
-            <element signature="e#1300#1301#0" expanded="true" />
-            <element signature="method#Matrix#3;class#Matrix#0" />
-            <element signature="method#getMatrixFromFile#0;class#Matrix#0" />
-            <element signature="method#printMatrix#0;class#Matrix#0" />
-            <element signature="method#vectorMultipleMatrix#0;class#Matrix#0" />
-            <element signature="method#sumTwoVectors#0;class#Matrix#0" />
-            <element signature="method#calculateKoeffKorrel#0;class#Matrix#0" />
-            <element signature="method#kroneckerMultiple#0;class#Matrix#0" />
-            <element signature="method#kroneckerMultipleRectangleMatrix#0;class#Matrix#0" />
-            <element signature="method#I#0;class#Matrix#0" />
-            <element signature="method#createDiagonalMatrix#0;class#Matrix#0" />
-            <element signature="method#infGeneratorQ#0;class#Matrix#0" />
-            <element signature="method#G_i#0;class#Matrix#0" />
-            <element signature="method#new_inf_gen_Q#0;class#Matrix#0" />
+            <element signature="e#1720#2003#0" />
+            <element signature="e#7086#7308#0" />
+            <element signature="e#9081#9116#0" />
+            <element signature="e#16005#16706#0" />
+            <element signature="e#16712#16886#0" />
+            <element signature="e#16892#17180#0" />
+            <element signature="e#17186#19392#0" />
+            <element signature="e#19398#20815#0" />
+            <element signature="e#20821#21126#0" />
+            <element signature="e#22267#22298#0" />
+            <element signature="e#22505#22507#0" />
+            <element signature="e#26521#26523#0" />
+            <element signature="e#27222#27224#0" />
+            <element signature="e#29093#29095#0" />
+            <element signature="e#31802#31849#0" />
+            <element signature="e#30127#30129#0" />
+            <element signature="e#30787#30789#0" />
+            <element signature="e#31432#31494#0" />
           </folding>
         </state>
       </provider>
